@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Screen Time & Mind – Score Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <h1>How is your screen time sitting with your mind?</h1>
+    <p class="lede">Tell us about your phone habits and daily routine. A machine-learning model trained on student survey data will estimate your mental health score.</p>
+  </header>
+
+  <main class="layout">
+    <form id="form" class="form" novalidate>
+
+      <section class="group" aria-labelledby="g1">
+        <h2 id="g1">About you</h2>
+
+        <div class="row two">
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="Age" min="10" max="100" value="20" required />
+          </div>
+          <div class="field">
+            <label for="country">Country</label>
+            <select id="country" name="Country">
+              <option>India</option>
+              <option>USA</option>
+              <option>Canada</option>
+              <option>Australia</option>
+              <option>UK</option>
+              <option>Germany</option>
+              <option>Mexico</option>
+              <option>Turkey</option>
+              <option>France</option>
+              <option value="Other">Another country</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Gender</legend>
+          <div class="seg" role="radiogroup">
+            <label><input type="radio" name="Gender" value="Female" checked /><span>Female</span></label>
+            <label><input type="radio" name="Gender" value="Male" /><span>Male</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Academic level</legend>
+          <div class="seg" role="radiogroup">
+            <label><input type="radio" name="Academic_Level" value="High School" /><span>High school</span></label>
+            <label><input type="radio" name="Academic_Level" value="Undergraduate" checked /><span>Undergraduate</span></label>
+            <label><input type="radio" name="Academic_Level" value="Graduate" /><span>Graduate</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="group" aria-labelledby="g2">
+        <h2 id="g2">Your phone habits</h2>
+
+        <fieldset class="field">
+          <legend>Most used platform</legend>
+          <div class="chips" id="platforms">
+            <label><input type="radio" name="Most_Used_Platform" value="Instagram" checked /><span>Instagram</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="WhatsApp" /><span>WhatsApp</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="YouTube" /><span>YouTube</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="TikTok" /><span>TikTok</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="Facebook" /><span>Facebook</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="Snapchat" /><span>Snapchat</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="Twitter" /><span>Twitter</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="LinkedIn" /><span>LinkedIn</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="WeChat" /><span>WeChat</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="LINE" /><span>LINE</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="KakaoTalk" /><span>KakaoTalk</span></label>
+            <label><input type="radio" name="Most_Used_Platform" value="VKontakte" /><span>VKontakte</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Main reason you use it</legend>
+          <div class="seg" role="radiogroup">
+            <label><input type="radio" name="Purpose_Of_Use" value="Entertainment" checked /><span>Entertainment</span></label>
+            <label><input type="radio" name="Purpose_Of_Use" value="Networking" /><span>Networking</span></label>
+            <label><input type="radio" name="Purpose_Of_Use" value="Education" /><span>Education</span></label>
+            <label><input type="radio" name="Purpose_Of_Use" value="News" /><span>News</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <div class="slider-head"><label for="usage">Daily social media time</label><output for="usage" data-fmt="h">4 h</output></div>
+          <input type="range" id="usage" name="Avg_Daily_Usage_Hours" min="0" max="16" step="0.5" value="4" />
+        </div>
+
+        <div class="field">
+          <div class="slider-head"><label for="unlocks">Phone unlocks per day</label><output for="unlocks">50</output></div>
+          <input type="range" id="unlocks" name="Daily_Unlocks" min="0" max="300" step="5" value="50" />
+        </div>
+      </section>
+
+      <section class="group" aria-labelledby="g3">
+        <h2 id="g3">Your day</h2>
+
+        <div class="field">
+          <div class="slider-head"><label for="sleep">Sleep per night</label><output for="sleep" data-fmt="h">7 h</output></div>
+          <input type="range" id="sleep" name="Sleep_Hours_Per_Night" min="0" max="14" step="1" value="7" />
+        </div>
+
+        <div class="field">
+          <div class="slider-head"><label for="study">Study time per day</label><output for="study" data-fmt="h">4 h</output></div>
+          <input type="range" id="study" name="Study_Hours" min="0" max="16" step="1" value="4" />
+        </div>
+
+        <div class="field">
+          <div class="slider-head"><label for="activity">Physical activity per day</label><output for="activity" data-fmt="h">1 h</output></div>
+          <input type="range" id="activity" name="Physical_Activity_Hours" min="0" max="8" step="1" value="1" />
+        </div>
+
+        <fieldset class="field">
+          <legend>Stress level</legend>
+          <div class="seg stress" role="radiogroup">
+            <label><input type="radio" name="stress_level" value="Low" /><span>Low</span></label>
+            <label><input type="radio" name="stress_level" value="Medium" checked /><span>Medium</span></label>
+            <label><input type="radio" name="stress_level" value="High" /><span>High</span></label>
+            <label><input type="radio" name="stress_level" value="Very High" /><span>Very high</span></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <button type="submit" id="submit" class="cta">Predict my score</button>
+    </form>
+
+    <aside class="result" id="result" aria-live="polite">
+      <div class="card">
+        <svg class="dial" viewBox="0 0 240 140" role="img" aria-label="Score dial">
+          <path class="track" d="M 20 120 A 100 100 0 0 1 220 120" pathLength="100" />
+          <path class="fill" id="arc" d="M 20 120 A 100 100 0 0 1 220 120" pathLength="100" />
+          <text x="20" y="138" class="tick" text-anchor="middle">0</text>
+          <text x="220" y="138" class="tick" text-anchor="middle">10</text>
+        </svg>
+        <div class="readout">
+          <div class="score" id="score">–</div>
+          <div class="outof" id="outof">out of 10</div>
+        </div>
+
+        <div id="state-empty" class="state">
+          <p class="band">Waiting for your answers</p>
+          <p class="note">Fill in the form and press <strong>Predict my score</strong>. Your result appears here.</p>
+        </div>
+
+        <div id="state-loading" class="state" hidden>
+          <p class="band">Working it out…</p>
+          <p class="note">Sending your answers to the model.</p>
+        </div>
+
+        <div id="state-error" class="state" hidden>
+          <p class="band err">Couldn't get a prediction</p>
+          <p class="note" id="error-text"></p>
+        </div>
+
+        <div id="state-done" class="state" hidden>
+          <p class="band" id="band"></p>
+          <p class="note" id="summary"></p>
+          <ul class="tips" id="tips"></ul>
+        </div>
+
+        <p class="fine">Higher is better. This is a statistical estimate from survey data, not a diagnosis. If you're struggling, please talk to someone you trust or a health professional.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
