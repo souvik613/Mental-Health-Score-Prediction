@@ -1,6 +1,6 @@
 
 // FastAPI address. Change this if you run uvicorn on another port.
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://mental-health-score-prediction-tpon.onrender.com";
 
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
